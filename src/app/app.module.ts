@@ -8,6 +8,9 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from '../environments/environment';
 
+/* NG BOOTSTRAP */
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
 /* COMPONENTS */
 import { AppComponent } from './app.component';
 
@@ -23,6 +26,7 @@ import { AuthService } from './shared/auth/auth.service';
     AngularFireModule.initializeApp(environment.firebase, 'inspiration-only-dev'),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
+    NgbModule.forRoot()
   ],
   providers: [ AuthService ],
   bootstrap: [ AppComponent ]

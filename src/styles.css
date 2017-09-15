@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* google fonts used: 
+<link href="https://fonts.googleapis.com/css?family=Oswald:300,700|Playfair+Display:400,900,900i" rel="stylesheet">
+font-family: 'Playfair Display', serif;
+* font-weight: 400, 900
+* font-style: italic (900 only)
+font-family: 'Oswald', sans-serif;
+* font-weight: 300, 700
+*/
+
+button {
+	font-family: 'Oswald', sans-serif;
+	font-weight: 700;
+}

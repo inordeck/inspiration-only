@@ -34,8 +34,14 @@ inspiration only is a full stack app to fascilitate collabortation between write
 
 ## look and feel
 <sup>}}</sup>8<sup>{{</sup>
-google fonts: oswald, playfair display
 
+google fonts:
+* <link href="https://fonts.googleapis.com/css?family=Oswald:300,700|Playfair+Display:400,900,900i" rel="stylesheet">
+* font-family: 'Playfair Display', serif;
+** font-weight: 400, 900
+** font-style: italic (900 only)
+* font-family: 'Oswald', sans-serif;
+** font-weight: 300, 700
 
 ## links
 * https://angular.io/
