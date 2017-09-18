@@ -46,6 +46,16 @@ google fonts:
 * font-family: 'Oswald', sans-serif;
 ** font-weight: 300, 700
 
+colors:
+* dark gray: #303030;
+
+* dark orange: #FF8C00;
+* light orange: #FFA500;
+
+* slate gray light: #f0f2f4;
+* slate gray med: #637383;
+* slate gray dark: #2c333a;
+
 ## links
 * https://angular.io/
 * https://www.typescriptlang.org/
