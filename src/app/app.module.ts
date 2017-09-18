@@ -26,6 +26,9 @@ import { NavComponent } from './nav/nav.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
+import { SendStoryComponent } from './send-story/send-story.component';
+import { StorySoFarComponent } from './story-so-far/story-so-far.component';
+import { NominateComponent } from './nominate/nominate.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +37,9 @@ import { LoginComponent } from './login/login.component';
     SignupComponent,
     LoginComponent,
     NavComponent,
+    SendStoryComponent,
+    StorySoFarComponent,
+    NominateComponent,
   ],
   imports: [
     BrowserModule,

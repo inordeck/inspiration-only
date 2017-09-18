@@ -9,7 +9,37 @@ font-family: 'Oswald', sans-serif;
 * font-weight: 300, 700
 */
 
+html {
+	background: #637383;
+}
+
+nav {
+	margin-bottom: 25px;
+	background-color: #303030;
+}
+
+.nav-link { 
+	color: #FF8C00;
+}
+.nav-link:hover {
+	color: #FFA500;
+}
+.nav-link:active {
+	color: #AFEEEE;
+}
+
 button {
 	font-family: 'Oswald', sans-serif;
 	font-weight: 700;
+}
+.card-header {
+	background-color: #696969;
+	color: #696969;
+}
+textarea {
+	width: 80%;
+	height: 500px;
+}
+.card {
+	margin-bottom: 50px;
 }
