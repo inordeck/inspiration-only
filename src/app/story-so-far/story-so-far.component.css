@@ -1,0 +1,21 @@
+.card {
+	border-color: #2c333a;
+	background-color: #f0f2f4;
+}
+
+.card-header {
+	background-color: #2c333a;
+	color: #FFA500;
+}
+
+.card-text {
+	padding: 25px;
+}
+
+.card-footer {
+	background-color: #2c333a;
+}
+
+.writtenBy {
+	color: white;
+}

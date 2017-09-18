@@ -29,6 +29,7 @@ import { LoginComponent } from './login/login.component';
 import { SendStoryComponent } from './send-story/send-story.component';
 import { StorySoFarComponent } from './story-so-far/story-so-far.component';
 import { NominateComponent } from './nominate/nominate.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { NominateComponent } from './nominate/nominate.component';
     SendStoryComponent,
     StorySoFarComponent,
     NominateComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
