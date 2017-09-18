@@ -20,11 +20,17 @@ https://inspiration-only.firebaseapp.com
 ## technologies
 * angular
 * typescript
-* material design for bootstrap - angular
 * sass
 * firebase
 * google cloud
+* bootstrap
 * email integration(???)
+
+### technologies tried and eliminated
+* material design for bootstrap - angular
+* quill
+* angular froala wysiwyg
+* ck editor
 
 ## user flows
 ![user flows](user-flows-1-01.jpg)
@@ -39,7 +45,7 @@ https://inspiration-only.firebaseapp.com
 <sup>}}</sup>8<sup>{{</sup>
 
 google fonts:
-* <link href="https://fonts.googleapis.com/css?family=Oswald:300,700|Playfair+Display:400,900,900i" rel="stylesheet">
+* link href="https://fonts.googleapis.com/css?family=Oswald:300,700|Playfair+Display:400,900,900i" rel="stylesheet"
 * font-family: 'Playfair Display', serif;
 ** font-weight: 400, 900
 ** font-style: italic (900 only)
@@ -48,10 +54,8 @@ google fonts:
 
 colors:
 * dark gray: #303030;
-
 * dark orange: #FF8C00;
 * light orange: #FFA500;
-
 * slate gray light: #f0f2f4;
 * slate gray med: #637383;
 * slate gray dark: #2c333a;
@@ -59,6 +63,5 @@ colors:
 ## links
 * https://angular.io/
 * https://www.typescriptlang.org/
-* http://mdbootstrap.com/angular/
 * http://sass-lang.com/
 * https://firebase.google.com/
