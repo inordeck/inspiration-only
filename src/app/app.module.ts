@@ -52,7 +52,6 @@ import { FooterComponent } from './footer/footer.component';
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     NgbModule.forRoot(),
-
   ],
   providers: [ AuthService ],
   bootstrap: [ AppComponent ]
