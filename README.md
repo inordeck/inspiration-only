@@ -33,7 +33,7 @@ https://inspiration-only.firebaseapp.com
 ![architecture](architecture-1-01.jpg)
 
 ## wireframes
-![wireframes](project4-wireframes.JPG)
+![wireframes](project4-wireframes.jpg)
 
 ## look and feel
 <sup>}}</sup>8<sup>{{</sup>
