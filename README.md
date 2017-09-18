@@ -11,6 +11,9 @@ participants are nominated by their peers to participate. participants will alte
 ## what is it?
 inspiration only is a full stack app to fascilitate collabortation between writers and artists on generating original stories.
 
+## deployed on firebase
+https://inspiration-only.firebaseapp.com
+
 ## user stories
 [trello](https://trello.com/b/6iWEWmYp/project-4-octomoose)
 
