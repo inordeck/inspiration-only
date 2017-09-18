@@ -7,3 +7,12 @@
 	background-color: #2c333a;
 	color: #FFA500;
 }
+
+.card-footer {
+	background-color: #2c333a;
+	padding-bottom: 25px;
+}
+
+#footerTitle {
+		color: #f0f2f4;
+}

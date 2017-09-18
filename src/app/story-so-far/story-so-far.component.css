@@ -14,8 +14,14 @@
 
 .card-footer {
 	background-color: #2c333a;
+	padding-bottom: 25px;
 }
 
 .writtenBy {
 	color: white;
+}
+
+.pages { 
+	padding-bottom: 15px;
+	margin-bottom: 0px; 
 }

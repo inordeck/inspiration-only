@@ -22,6 +22,7 @@ slate gray med: #637383;
 slate gray dark: #2c333a;
 */
 
+
 /* ///// TYPOGRAPHY ///// */
 
 .navbar-brand {
@@ -108,7 +109,6 @@ textarea {
 }
 
 
-
 /* ///// LINKS ///// */
 a {
 	font-family: 'Oswald', sans-serif;
@@ -138,6 +138,7 @@ nav {
 	font-weight: 700;
 }
 
+
 /* ///// LAYOUT ///// */
 body {
     background-image: url("./assets/iStock-667127422.jpg");
@@ -163,3 +164,4 @@ textarea {
 	width: 100%;
 	height: 500px;
 }
+
