@@ -10,6 +10,7 @@
 				<div class="card-block">
 					<h4 class="card-title">Recommended Instructions:</h4>
 					<ol class="card-text">
+						<li><a routerLink="/story-so-far">Read the story so far</a></li>
 						<li>Compose your story in your editor of choice.</li>
 						<li>Paste your copy into the text area below.</li>
 						<li>Click 'Contribute to Story' so save your story.</li>
@@ -27,10 +28,12 @@
 		<div class="col-8">
 			<div class="card">
 				<h1 class="card-header">ADD TO THE STORY</h1>
-				<h4 class="card-title">{{firstName}}</h4>
-				<div class="card-text">
-					<textarea name="contribute" id="" cols="30" rows="10" placeholder="Paste your story here..."></textarea>
-					<button type="submit" class="btn btn-success">CONTRIBUTE TO STORY</button>
+				<div class="card-block">
+					<h4 class="card-title">Billy Bob Joe Bubba Sue</h4>
+					<div class="card-text">
+						<textarea name="contribute" id="" cols="30" rows="10" placeholder="Paste your story here..."></textarea>
+						<button type="submit" class="btn btn-success" routerLink="/nominate">CONTRIBUTE TO STORY</button>
+					</div>
 				</div>
 			</div> <!-- end of card -->
 		</div> <!-- end of col 8 -->
