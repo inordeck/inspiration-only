@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {  } from 'firebaseui';
 
 @Component({
   selector: 'app-signup',
