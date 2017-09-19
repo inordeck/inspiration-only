@@ -1,0 +1,39 @@
+<router-outlet></router-outlet>
+<div class="container">
+	<div class="row">
+		<div class="col-2"></div> <!-- WHITESPACE -->
+
+		<div class="col-8">
+			<div class="card">
+				<h1 class="card-header">LOGIN</h1>
+				<div class="card-block">
+					<h4 class="card-title">Welcome back. Please login to continue.</h4>
+					<form>
+						<div class="form-group">
+							<label for="exampleInputEmail1">Email address</label>
+							<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+							<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+						</div>
+						<div *ngIf="formsErrors.email" class="notification is-danger">
+							{{ formsErrors.email }}
+						</div>
+						<div class="form-group">
+							<label for="exampleInputPassword1">Password</label>
+							<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+						</div>
+						<div *ngIf="formsErrors.password" class="notification is-danger">
+							{{ formsErrors.password }}							
+						</div>
+						<div *ngIf="userForm.valid" class="notification is-success">form is valid</div>
+						<div class="buttons">
+							<button type="submit" class="btn btn-primary" [disabled]="!userForm.valid">LOGIN WITH EMAIL</button>
+							<button (click)="loginWithGoogle()" class="btn btn-success">OR LOGIN UP WITH GOOGLE</button>
+						</div>
+					</form>  <!-- end of form -->
+				</div> <!-- end of card block -->
+			</div> <!-- end of card -->
+		</div> <!-- end of col 8 -->
+
+		<div class="col-2"></div> <!-- WHITESPACE -->
+	</div> <!-- end of row -->
+</div> <!-- end of container -->

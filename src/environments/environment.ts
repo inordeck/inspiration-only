@@ -7,7 +7,7 @@ export const environment = {
 	production: false,
 
 	/* inspiration-only-dev */
-	firebase: {
+	firebaseConfig: {
 		apiKey: "AIzaSyAThHz_1KKcFf4cqFVBOea2WnzJsssrFNA",
 		authDomain: "inspiration-only-dev.firebaseapp.com",
 		databaseURL: "https://inspiration-only-dev.firebaseio.com",

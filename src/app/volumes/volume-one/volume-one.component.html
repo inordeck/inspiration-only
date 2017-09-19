@@ -1,0 +1,50 @@
+<router-outlet></router-outlet>
+
+<div class="container">
+	<div class="row">
+		<div class="col-2"></div> <!-- WHITESPACE -->
+
+		<div class="col-8">
+
+				<div class="card">
+					<div class="card-block">
+						<div *ngFor="let story of stories | async" class="card">
+							<story [story]='story'></story>
+						</div>
+					</div> <!-- end of card block -->
+
+					<!-- PAGINATION -->			
+					<nav class="pages" aria-label="Page navigation example">				
+						<ul class="pagination justify-content-center">					
+							<li class="page-item">						
+								<a class="page-link" href="#" tabindex="-1">Previous</a>					
+							</li>
+							<li class="page-item">
+								<a class="page-link" href="#">1</a>
+							</li>
+							<li class="page-item">
+								<a class="page-link" href="#">2</a>
+							</li>
+							<li class="page-item">
+								<a class="page-link" href="#">3</a>
+							</li>
+							<li class="page-item">
+								<a class="page-link" href="#">Next</a>
+							</li>
+						</ul>			
+					</nav>
+
+					<!-- CREDITS -->
+					<div class="card-footer text-centered text-muted">
+						<h6 class="writtenBy"><span class="author">AUTHOR:</span> Harper Nordeck</h6>
+						<button class="btn btn-warning" routerLink="/send-story">EDIT</button>
+						<button class="btn btn-success" routerLink="/send-story">CONTRIBUTE TO STORY</button>
+					</div>
+					
+				</div> <!-- end of card -->
+
+		</div> <!-- end of col 8 -->
+
+		<div class="col-2"></div> <!-- WHITESPACE -->
+	</div> <!-- end of row -->
+</div> <!-- end of container -->
