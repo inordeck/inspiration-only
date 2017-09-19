@@ -15,7 +15,7 @@ import { AuthService } from '../../shared/auth/auth.service';
 })
 export class SendStoryComponent implements OnInit {
 
-	@Input() story: Story = new Story();
+	story: Story = new Story();
 
 	stories: FirebaseListObservable<Story[]>;
 
