@@ -1,6 +1,7 @@
 /*  import {  } from '';  */
 import { Component, OnInit } from '@angular/core';
 import { ReactiveFormsModule, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 /* services */
 import { AuthService } from '../../shared/auth/auth.service';
@@ -33,7 +34,8 @@ export class SignupComponent implements OnInit {
 	};
 
 	constructor(
-		private auth: AuthService
+		private auth: AuthService,
+    private router: Router
   	) { }
 
   ngOnInit() {
@@ -41,6 +43,12 @@ export class SignupComponent implements OnInit {
 
   toggleForm() {
   	this.newUser = !this.newUser;
+  }
+
+  // social login
+  loginWithGoogle(): void {
+  	this.auth.loginWithGoogle()
+  		.then(() => this.afterLogin());
   }
 
   signup(): void {
@@ -54,6 +62,11 @@ export class SignupComponent implements OnInit {
   resetPassword() {
   	this.auth.resetPassword(this.userForm.value['email'])
   		.then(() => this.passReset = true)
+  }
+
+  afterLogin(): void {
+    console.log('logged in')
+    this.router.navigate(['/send-story']);
   }
 
   onValueChanged(data?: any) {
