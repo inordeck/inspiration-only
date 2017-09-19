@@ -24,7 +24,7 @@ export class StoryService {
 			})
 	}
 
-	/* return sigle story entry */
+	/* return single story entry */
 	getStory(key: string): FirebaseObjectObservable<Story> {
 		const storyPath = `${this.basePath}/${key}`;
 		this.story = this.db.object(storyPath)

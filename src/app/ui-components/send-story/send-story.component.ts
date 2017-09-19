@@ -5,6 +5,7 @@ import { FirebaseListObservable } from 'angularfire2/database';
 
 import { Story } from '../../shared/story/story';
 import { StoryService } from '../../shared/story/story.service';
+import { StoryModule } from '../../shared/story/story.module';
 import { AuthService } from '../../shared/auth/auth.service';
 
 @Component({

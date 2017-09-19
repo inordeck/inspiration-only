@@ -7,6 +7,7 @@ import { RouterModule, Routes } from '@angular/router';
 /* services */
 import { AuthGuard } from './shared/auth/auth.guard';
 import { CoreModule } from './shared/auth/core.module';
+import { StoryService } from './shared/story/story.service';
 
 /* components */
 import { WelcomeComponent } from './ui-components/welcome/welcome.component';
@@ -32,7 +33,10 @@ const routes: Routes = [
 @NgModule ({
 	imports: [ RouterModule.forRoot(routes, { enableTracing: true }),CommonModule ],
 	exports: [ RouterModule ],
-	providers: [ AuthGuard ]
+	providers: [ 
+		AuthGuard, 
+		StoryService
+	]
 })
 
 export class AppRoutingModule { }
