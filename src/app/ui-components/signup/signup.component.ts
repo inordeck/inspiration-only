@@ -34,7 +34,7 @@ export class SignupComponent implements OnInit {
   }
 
   // social login
-  loginWithGoogle(): void {
+  loginWithGoogle() {
   	this.auth.loginWithGoogle()
   		.then(() => this.afterLogin());
   }

@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
   }
 
   // social login
-  loginWithGoogle(): void {
+  loginWithGoogle() {
   	this.auth.loginWithGoogle()
   		.then(() => this.afterLogin());
   }
