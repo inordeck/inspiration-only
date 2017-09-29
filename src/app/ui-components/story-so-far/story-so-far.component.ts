@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './story-so-far.component.html',
   styleUrls: ['./story-so-far.component.css']
 })
+
 export class StorySoFarComponent implements OnInit {
 
   constructor() { }

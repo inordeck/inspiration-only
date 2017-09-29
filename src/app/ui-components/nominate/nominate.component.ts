@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './nominate.component.html',
   styleUrls: ['./nominate.component.css']
 })
+
 export class NominateComponent implements OnInit {
 
   constructor() { }

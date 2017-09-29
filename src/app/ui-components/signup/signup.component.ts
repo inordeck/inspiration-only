@@ -11,6 +11,7 @@ import { AuthService } from '../../shared/auth/auth.service';
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
 })
+
 export class SignupComponent implements OnInit {
 
 	userForm: FormGroup;

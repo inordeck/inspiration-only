@@ -6,6 +6,7 @@ import { AuthService } from '../../shared/auth/auth.service';
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.css']
 })
+
 export class NavComponent implements OnInit {
 
   constructor(

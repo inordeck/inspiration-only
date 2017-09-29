@@ -13,6 +13,7 @@ import { AuthService } from '../../shared/auth/auth.service';
   templateUrl: './send-story.component.html',
   styleUrls: ['./send-story.component.css']
 })
+
 export class SendStoryComponent implements OnInit {
 
 	story: Story = new Story();
