@@ -1,41 +1,77 @@
 <router-outlet></router-outlet>
+
 <div class="container">
 	<div class="row">
 		<div class="col-2"></div> <!-- WHITESPACE -->
 
 		<div class="col-8">
 			<div class="card">
-				<h1 class="card-header">SIGNUP</h1>
-				<div class="card-block">
-					<h4 class="card-title">Thanks you for signing up and participating.</h4>
-					<p class="card-text">Sign up by setting and email and password or with you google account.</p>
-					<form>
-						<div class="form-group">
-							<label for="firstName">First Name</label>
-							<input type="firstName" class="form-control" id="firstName" placeholder="Enter first name">
-						</div>
-							<div class="form-group">
-							<label for="lastName">Last Name</label>
-							<input type="lastName" class="form-control" id="lastName" placeholder="Enter last name">
-						</div>
-						
-						<div class="form-group">
-							<label for="exampleInputEmail1">Email address</label>
-							<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-							<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-						</div>
-						
-						<div class="form-group">
-							<label for="exampleInputPassword1">Password</label>
-							<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-						</div>
 
-						<div class="buttons">
-							<button type="submit" class="btn btn-primary">SIGNUP WITH EMAIL</button>
-							<button (click)="loginWithGoogle()" class="btn btn-success">OR SIGN UP WITH GOOGLE</button>
-						</div>
-					</form>  <!-- end of form -->
-				</div> <!-- end of card block -->
+
+<form [formGroup]="userForm"  *ngIf="newUser"  (ngSubmit)="signup()">
+
+  <h3>New User Signup</h3>
+  <p class="button is-small" (click)="toggleForm()">Already Registered?</p>
+  <hr>
+
+  <label for="email">Email</label>
+  <input type="email" id="email" class="input"
+         formControlName="email" required >
+
+  <div *ngIf="formErrors.email" class="notification is-danger">
+    {{ formErrors.email }}
+  </div>
+
+  <label for="password">Password</label>
+  <input type="password" id="password" class="input"
+         formControlName="password" required >
+
+  <div *ngIf="formErrors.password" class="notification is-danger">
+    {{ formErrors.password }}
+  </div>
+
+  <div *ngIf="userForm.valid" class="notification is-success">Form is valid</div>
+  <button type="submit" class="button" [disabled]="!userForm.valid">Submit</button>
+
+
+
+
+</form>
+
+
+<form [formGroup]="userForm"  *ngIf="!newUser"  (ngSubmit)="login()">
+
+  <h3>Existing User Login</h3>
+  <p class="btn button is-small" (click)="toggleForm()">New User?</p>
+  <hr>
+
+  <label for="email">Email</label>
+  <input type="email" id="email" class="input"
+         formControlName="email" required >
+
+  <div *ngIf="formErrors.email" class="help is-danger">
+    {{ formErrors.email }}
+  </div>
+
+  <label for="password">Password</label>
+  <input type="password" id="password" class="input"
+         formControlName="password" required >
+
+  <div *ngIf="formErrors.password" class="help is-danger">
+    {{ formErrors.password }}
+  </div>
+
+  <button type="submit" class="button" [disabled]="!userForm.valid">Submit</button>
+
+  <span *ngIf="userForm.valid" class="help is-success">Form Looks Valid</span>
+
+  <a *ngIf="!passReset && userForm.controls.email.valid" class="help is-info" (click)="resetPassword()">Reset Password for {{userForm.value.email}}?</a>
+  <p *ngIf="passReset" class="help is-info">Reset requested. Check your email instructions.</p>
+
+
+</form>
+
+
 			</div> <!-- end of card -->
 		</div> <!-- end of col 8 -->
 

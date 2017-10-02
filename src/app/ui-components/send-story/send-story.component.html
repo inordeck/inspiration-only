@@ -10,7 +10,7 @@
 				<div class="card-block">
 					<h4 class="card-title">Instructions:</h4>
 					<ol class="card-text">
-						<li><a routerLink="/story-so-far">Read the story so far</a></li>
+						<li><a routerLink="/volume-one">Read the story so far</a></li>
 						<li>Compose your story in your editor of choice.</li>
 						<li>Paste your copy into the text area below.</li>
 						<li>Click 'Contribute to Story' to save your story.</li>
@@ -30,10 +30,12 @@
 			<div class="card">
 				<h1 class="card-header">ADD TO THE STORY</h1>
 				<div class="card-block">
-					<h4 class="card-title"><span class="author">AUTHOR:</span> Harper Nordeck</h4>
+					<!-- <div *ngIf="authState">
+						<h4 class="card-title"><span class="author">AUTHOR:</span> {{displayName}}</h4>
+					</div> -->
 					<div class="card-text">
-						<textarea name="contribute" id="" cols="30" rows="10" placeholder="Paste your story here..."></textarea>
-						<button type="submit" class="btn btn-success" id="create" (click)='createStory()'>CONTRIBUTE TO STORY</button>
+						<textarea [(ngModel)]="story.text" name="contribute" cols="30" rows="10" placeholder="Paste your story here..."></textarea>
+						<button class="btn btn-success" id="create" (click)='createStory()'>CONTRIBUTE TO STORY</button>
 					</div>
 				</div>
 			</div> <!-- end of card -->

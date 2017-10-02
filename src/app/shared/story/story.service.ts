@@ -1,5 +1,7 @@
 /*  import {  } from '';  */
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+
 import { AngularFireDatabase, AngularFireDatabaseModule } from 'angularfire2/database';
 import { FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
@@ -13,12 +15,14 @@ export class StoryService {
 	private basePath ='/volume-one';
 
 	userId: string;
-	story: FirebaseObjectObservable<Story> = null;
-	stories: FirebaseListObservable<Story[]> = null;
+	story: FirebaseObjectObservable<Story> = null; // single story entry
+	stories: FirebaseListObservable<Story[]> = null; // list of story entries
 
 	constructor(
 		private db: AngularFireDatabase,
+		private router: Router,
 		private afAuth: AngularFireAuth) {
+			this.stories = db.list('/volume-one')
 			this.afAuth.authState.subscribe(user => {
 				if(user) this.userId = user.uid
 			})
@@ -43,6 +47,8 @@ export class StoryService {
 		story.userId = this.userId
 		this.stories.push(story)
 			.catch(error => this.handleError(error))
+		this.router.navigate(['/volume-one'])
+
 	}
 
 	/* update story */

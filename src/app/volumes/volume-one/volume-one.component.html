@@ -8,13 +8,13 @@
 
 				<div class="card">
 					<div class="card-block">
-						<div *ngFor="let story of stories | async" class="card">
-							<story [story]='story'></story>
+						<div *ngFor="let story of stories | async" class="card-text">
+							<p>{{story.text}}</p>
 						</div>
 					</div> <!-- end of card block -->
 
 					<!-- PAGINATION -->			
-					<nav class="pages" aria-label="Page navigation example">				
+					<!-- <nav class="pages" aria-label="Page navigation example">				
 						<ul class="pagination justify-content-center">					
 							<li class="page-item">						
 								<a class="page-link" href="#" tabindex="-1">Previous</a>					
@@ -32,12 +32,12 @@
 								<a class="page-link" href="#">Next</a>
 							</li>
 						</ul>			
-					</nav>
+					</nav> -->
 
 					<!-- CREDITS -->
 					<div class="card-footer text-centered text-muted">
-						<h6 class="writtenBy"><span class="author">AUTHOR:</span> Harper Nordeck</h6>
-						<button class="btn btn-warning" routerLink="/send-story">EDIT</button>
+						<!-- <h6 class="writtenBy"><span class="author">AUTHOR:</span> {{authState.displayName}}</h6> -->
+						<!-- <button class="btn btn-warning" routerLink="/send-story">EDIT</button> -->
 						<button class="btn btn-success" routerLink="/send-story">CONTRIBUTE TO STORY</button>
 					</div>
 					

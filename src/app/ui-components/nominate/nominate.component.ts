@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'lsl-nominate',
+  selector: 'app-nominate',
   templateUrl: './nominate.component.html',
   styleUrls: ['./nominate.component.css']
 })

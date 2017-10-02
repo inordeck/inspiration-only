@@ -1,7 +1,7 @@
 /*  import {  } from '';  */
 import { NgModule, Component, Injectable, NO_ERRORS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Http, HttpModule } from '@angular/http';
 
 /*  ANGULAR FIRE 2 */
@@ -25,9 +25,7 @@ import { AppComponent } from './app.component';
 import { NavComponent } from './ui-components/nav/nav.component';
 import { WelcomeComponent } from './ui-components/welcome/welcome.component';
 import { SignupComponent } from './ui-components/signup/signup.component';
-import { LoginComponent } from './ui-components/login/login.component';
 import { SendStoryComponent } from './ui-components/send-story/send-story.component';
-import { StorySoFarComponent } from './ui-components/story-so-far/story-so-far.component';
 import { NominateComponent } from './ui-components/nominate/nominate.component';
 import { FooterComponent } from './ui-components/footer/footer.component';
 import { VolumeOneComponent } from './volumes/volume-one/volume-one.component';
@@ -39,10 +37,8 @@ export const firebaseConfig = environment.firebaseConfig;
     AppComponent,
     WelcomeComponent,
     SignupComponent,
-    LoginComponent,
     NavComponent,
     SendStoryComponent,
-    StorySoFarComponent,
     NominateComponent,
     FooterComponent,
     VolumeOneComponent,
@@ -50,6 +46,7 @@ export const firebaseConfig = environment.firebaseConfig;
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
@@ -59,6 +56,7 @@ export const firebaseConfig = environment.firebaseConfig;
     NgbModule.forRoot(),
   ],
   bootstrap: [ AppComponent ],
+  providers: [ AuthService ],
   schemas: [ NO_ERRORS_SCHEMA ]
 })
 
