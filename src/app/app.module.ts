@@ -16,6 +16,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 /* SERVICES */
 import { AuthService } from './shared/auth/auth.service';
 import { CoreModule } from './shared/auth/core.module';
+import { SharedModule } from './ui-components/nominate/shared/shared.module';
+
+/* recaptcha */
+import { RecaptchaModule } from 'ng-recaptcha';
 
 /* ROUTING */
 import { AppRoutingModule } from './app.routing.module';
@@ -53,6 +57,8 @@ export const firebaseConfig = environment.firebaseConfig;
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     CoreModule,
+    SharedModule,
+    RecaptchaModule.forRoot(),
     NgbModule.forRoot(),
   ],
   bootstrap: [ AppComponent ],

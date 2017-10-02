@@ -10,28 +10,105 @@
 				<div class="card-block">
 					<h4 class="card-title">Thanks you for participating and contributing to the story.</h4>
 					<p class="card-text">Please nominate the next writer to pick up where you left off.</p>
-					<form>
+						<div class="row">
+						  	<pb-contact></pb-contact>
+						</div>
+
+<form #contactForm="ngForm" [hidden]="submitted" (ngSubmit)="captchaRef.execute()">
+    <div class="form-group">
+      <input type="text"
+             [(ngModel)]="model.contactName"
+             #contactName="ngModel"
+             name="contactName"
+             required
+             placeholder="Full Name*"
+             class="form-control">
+      <div *ngIf="formErrors.contactName" class="alert alert-danger">
+        {{ formErrors.contactName }}
+      </div>
+    </div>
+    <div class="form-group">
+      <input type="email"
+             [(ngModel)]="model.contactEmail"
+             #contactEmail="ngModel"
+             name="contactEmail"
+             required
+             appEmailValidator
+             placeholder="Email*"
+             class="form-control">
+      <div *ngIf="formErrors.contactEmail" class="alert alert-danger">
+        {{ formErrors.contactEmail }}
+      </div>
+    </div>
+    <div class="form-group">
+      <input type="text"
+             [(ngModel)]="model.contactWebsite"
+             id="contact_website"
+             name="contactWebsite"
+             placeholder="Website"
+             class="form-control">
+    </div>
+    <div class="form-group">
+      <textarea [(ngModel)]="model.contactMessage"
+                (keyup)="countChars($event)"
+                #contactMessage="ngModel"
+                name="contactMessage"
+                required
+                placeholder="Message*"
+                class="form-control"
+                maxlength="250"
+                rows="6"></textarea>
+      <div *ngIf="formErrors.contactMessage" class="alert alert-danger" style="margin-bottom:0">
+        {{ formErrors.contactMessage }}
+      </div>
+      <span class="char-count">{{ charsLeft }}</span>
+    </div>
+    <re-captcha #captchaRef="reCaptcha"
+            name="captcha"
+            siteKey="6Ldq5jIUAAAAALgK6PfPTGBah-mn0uhYGn2zocs3"
+            size="invisible"
+            (resolved)="$event && onSubmit($event)"></re-captcha>
+    <button
+		class="g-recaptcha btn btn-primary pull-right"
+		data-sitekey="6Ldq5jIUAAAAALgK6PfPTGBah-mn0uhYGn2zocs3"
+		data-callback="YourOnSubmitFn">
+		Send
+		</button>
+  </form>
+  <div [hidden]="!submitted">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">Contact form submitted with values:</h3>
+      </div>
+      <div class="panel-body">
+        {{ submittedForm }}
+      </div>
+    </div>
+  </div>
+
+					<!-- OLD -->
+					<!-- <form [formGroup]="form" (ngSubmit)="onSubmit()">
 						<div class="form-group">
 							<label for="firstName">First Name</label>
-							<input type="firstName" class="form-control" id="firstName" placeholder="Enter first name">
+							<input type="text" formControlName="firstName" class="form-control" id="firstName" placeholder="Enter first name">
 						</div>
 							<div class="form-group">
 							<label for="lastName">Last Name</label>
-							<input type="lastName" class="form-control" id="lastName" placeholder="Enter last name">
+							<input type="text" formControlGroup="lastName" class="form-control" id="lastName" placeholder="Enter last name">
 						</div>
 						<div class="form-group">
 							<label for="exampleInputEmail1">Email address</label>
-							<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+							<input type="text" formControlGroup="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
 							<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
 						</div>
 						<div class="form-group">
 							<label for="personalMessage">Personal Message</label>
-							<input type="textarea" class="form-control" id="personalMessage" placeholder="Personal message...">
+							<input type="textarea" formControlGroup="message" class="form-control" id="personalMessage" placeholder="Personal message...">
 						</div>
 						<div class="buttons">
-							<button type="submit" class="btn btn-primary" routerLink="/story-so-far">NOMINATE</button>
+							<button type="submit" [disabled]="form.invalid" class="btn btn-primary" routerLink="/story-so-far">NOMINATE</button>
 						</div>
-					</form>  <!-- end of form -->
+					</form> -->  <!-- end of form -->
 				</div> <!-- end of card block -->
 			</div> <!-- end of card -->
 		</div> <!-- end of col 8 -->

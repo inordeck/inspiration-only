@@ -47,7 +47,7 @@ export class StoryService {
 		story.userId = this.userId
 		this.stories.push(story)
 			.catch(error => this.handleError(error))
-		this.router.navigate(['/volume-one'])
+		this.router.navigate(['/nominate'])
 
 	}
 
