@@ -19,6 +19,9 @@
 				<a class="nav-link" routerLink="/signup">SIGNUP</a>
 			</li>
 			<li *ngIf="isLoggedIn()" class="nav-item">
+				<a class="nav-link" routerLink="/send-story">CONTRIBUTE</a>
+			</li>
+			<li *ngIf="isLoggedIn()" class="nav-item">
 				<a class="nav-link" (click)="signOut()">LOGOUT</a>
 			</li>
 		</ul>
