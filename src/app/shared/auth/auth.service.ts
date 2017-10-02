@@ -12,6 +12,7 @@ export class AuthService {
 
 	authState: any = null;
 
+
 	constructor(
 		private afAuth: AngularFireAuth,
 		private db: AngularFireDatabase,
@@ -137,6 +138,13 @@ export class AuthService {
 
 
   //// Sign Out ////
+
+  isLoggedIn() {
+    if (this.currentUser == null) {
+      return false
+    }
+    return true;
+  }
 
   signOut(): void {
     this.afAuth.auth.signOut();

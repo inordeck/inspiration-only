@@ -7,70 +7,62 @@
 		<div class="col-8">
 			<div class="card">
 
+        <form class="form-group" [formGroup]="userForm"  *ngIf="newUser"  (ngSubmit)="signup()">
+          <h1 class="card-header">New User Signup</h1>
+          <div class="card-block">
+            <button class="btn btn-success" (click)="toggleForm()">Already Registered?</button>
+            <hr>
 
-<form [formGroup]="userForm"  *ngIf="newUser"  (ngSubmit)="signup()">
-
-  <h3>New User Signup</h3>
-  <p class="button is-small" (click)="toggleForm()">Already Registered?</p>
-  <hr>
-
-  <label for="email">Email</label>
-  <input type="email" id="email" class="input"
-         formControlName="email" required >
-
-  <div *ngIf="formErrors.email" class="notification is-danger">
-    {{ formErrors.email }}
-  </div>
-
-  <label for="password">Password</label>
-  <input type="password" id="password" class="input"
-         formControlName="password" required >
-
-  <div *ngIf="formErrors.password" class="notification is-danger">
-    {{ formErrors.password }}
-  </div>
-
-  <div *ngIf="userForm.valid" class="notification is-success">Form is valid</div>
-  <button type="submit" class="button" [disabled]="!userForm.valid">Submit</button>
+            <label for="email">Email</label>
+            <input type="email" id="email" class="input" formControlName="email" required >
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
 
 
+            <div *ngIf="formErrors.email" class="notification is-danger">
+              {{ formErrors.email }}
+            </div>
 
+            <label for="password">Password</label>
+            <input type="password" id="password" class="input" formControlName="password" required >
 
-</form>
+            <div *ngIf="formErrors.password" class="notification is-danger">
+              {{ formErrors.password }}
+            </div>
 
+            <div *ngIf="userForm.valid" class="notification is-success">Form is valid</div>
+              <button type="submit" class="btn btn-success" [disabled]="!userForm.valid">Sign Up</button>
+          </div>
+        </form>
 
-<form [formGroup]="userForm"  *ngIf="!newUser"  (ngSubmit)="login()">
+        <form class="form-group" [formGroup]="userForm"  *ngIf="!newUser"  (ngSubmit)="login()">
+          <h1 class="card-header">Existing User Login</h1>
+          <div class="card-block">
+            <button class="btn btn-success" (click)="toggleForm()">New User?</button>
+            <hr>
 
-  <h3>Existing User Login</h3>
-  <p class="btn button is-small" (click)="toggleForm()">New User?</p>
-  <hr>
+            <label for="email">Email</label>
+            <input type="email" id="email" class="input" formControlName="email" required >
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
 
-  <label for="email">Email</label>
-  <input type="email" id="email" class="input"
-         formControlName="email" required >
+            <div *ngIf="formErrors.email" class="help is-danger">
+              {{ formErrors.email }}
+            </div>
 
-  <div *ngIf="formErrors.email" class="help is-danger">
-    {{ formErrors.email }}
-  </div>
+            <label for="password">Password</label>
+            <input type="password" id="password" class="input" formControlName="password" required >
 
-  <label for="password">Password</label>
-  <input type="password" id="password" class="input"
-         formControlName="password" required >
+            <div *ngIf="formErrors.password" class="help is-danger">
+              {{ formErrors.password }}
+            </div>
 
-  <div *ngIf="formErrors.password" class="help is-danger">
-    {{ formErrors.password }}
-  </div>
+            <button type="submit" class="btn btn-success" [disabled]="!userForm.valid">Log In</button>
+            <span *ngIf="userForm.valid" class="help is-success">Form Looks Valid</span>
 
-  <button type="submit" class="button" [disabled]="!userForm.valid">Submit</button>
+            <button *ngIf="!passReset && userForm.controls.email.valid" class="help is-info btn btn-warning" (click)="resetPassword()">Reset Password for {{userForm.value.email}}?</button>
 
-  <span *ngIf="userForm.valid" class="help is-success">Form Looks Valid</span>
-
-  <a *ngIf="!passReset && userForm.controls.email.valid" class="help is-info" (click)="resetPassword()">Reset Password for {{userForm.value.email}}?</a>
-  <p *ngIf="passReset" class="help is-info">Reset requested. Check your email instructions.</p>
-
-
-</form>
-
+            <p *ngIf="passReset" class="help is-info">Reset requested. Check your email instructions.</p>
+          </div>
+        </form>
 
 			</div> <!-- end of card -->
 		</div> <!-- end of col 8 -->

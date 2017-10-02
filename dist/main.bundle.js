@@ -452,6 +452,12 @@ var AuthService = (function () {
             .catch(function (error) { return console.log(error); });
     };
     //// Sign Out ////
+    AuthService.prototype.isLoggedIn = function () {
+        if (this.currentUser == null) {
+            return false;
+        }
+        return true;
+    };
     AuthService.prototype.signOut = function () {
         this.afAuth.auth.signOut();
         this.router.navigate(['/']);
@@ -687,7 +693,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, "a:not([href]):not([tabindex]) {\n\tcolor: #FF8C00;\n}", ""]);
 
 // exports
 
@@ -700,7 +706,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/ui-components/nav/nav.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-toggleable-md\">\n\t<button \n\t\tclass=\"navbar-toggler navbar-toggler-right\"\n\t\ttype=\"button\" \n\t\tdata-toggle=\"collapse\" \n\t\tdata-target=\"#navbarNav\" \n\t\taria-controls=\"navbarNav\" \n\t\taria-expanded=\"false\" \n\t\taria-label=\"Toggle navigation\">\n\t\t<span class=\"navbar-toggler-icon\"></span>\n\t</button>\n\t<div class=\"collapse navbar-collapse\" id=\"navbarNav\">\n\t\t<a class=\"navbar-brand float-left\" routerLink=\"/welcome\"><sup>}}</sup>8<sup>{{</sup></a>\n\t\t<ul class=\"navbar-nav justify-content-end\">\n\t\t\t<li class=\"nav-item\">\n\t\t\t\t<a class=\"nav-link\" routerLink=\"/welcome\">WELCOME</a>\n\t\t\t</li>\n\t\t\t<li class=\"nav-item\">\n\t\t\t\t<a class=\"nav-link\" routerLink=\"/signup\">SIGNUP</a>\n\t\t\t</li>\n<!-- \t\t\t<li class=\"nav-item\">\n\t\t\t\t<a class=\"nav-link\" routerLink=\"/login\">LOGIN</a>\n\t\t\t</li> -->\n\n\t\t\t<div *ngIf=\"isLoggedIn\">\n \t\t\t\t<ul class=\"nav navbar-nav navbar-right border-left\">\n \t\t\t\t\t<li><a (click)=\"logout()\">Logout</a></li>\n \t\t\t\t</ul>\n \t\t\t\t<ul class=\"nav navbar-nav navbar-right\">\n \t\t\t\t\t<li><a>{{afAuth.displayName}}</a></li>\n \t\t\t\t</ul>\n \t\t\t</div>\n\t\t</ul>\n\t</div>\n</nav>"
+module.exports = "<nav class=\"navbar navbar-toggleable-md\">\n\t<button \n\t\tclass=\"navbar-toggler navbar-toggler-right\"\n\t\ttype=\"button\" \n\t\tdata-toggle=\"collapse\" \n\t\tdata-target=\"#navbarNav\" \n\t\taria-controls=\"navbarNav\" \n\t\taria-expanded=\"false\" \n\t\taria-label=\"Toggle navigation\">\n\t\t<span class=\"navbar-toggler-icon\"></span>\n\t</button>\n\t<div class=\"collapse navbar-collapse\" id=\"navbarNav\">\n\t\t<a class=\"navbar-brand float-left\" routerLink=\"/welcome\"><sup>}}</sup>8<sup>{{</sup></a>\n\t\t<ul class=\"navbar-nav justify-content-end\">\n\t\t\t<li class=\"nav-item\">\n\t\t\t\t<a class=\"nav-link\" routerLink=\"/welcome\">WELCOME</a>\n\t\t\t</li>\n\t\t\t<li class=\"nav-item\">\n\t\t\t\t<a class=\"nav-link\" routerLink=\"/signup\">SIGNUP</a>\n\t\t\t</li>\n\t\t\t<li *ngIf=\"isLoggedIn()\" class=\"nav-item\">\n\t\t\t\t<a class=\"nav-link\" (click)=\"signOut()\">LOGOUT</a>\n\t\t\t</li>\n\t\t</ul>\n\t</div>\n</nav>"
 
 /***/ }),
 
@@ -728,8 +734,11 @@ var NavComponent = (function () {
     }
     NavComponent.prototype.ngOnInit = function () {
     };
-    NavComponent.prototype.logout = function () {
+    NavComponent.prototype.signOut = function () {
         this.auth.signOut();
+    };
+    NavComponent.prototype.isLoggedIn = function () {
+        return this.auth.isLoggedIn();
     };
     return NavComponent;
 }());
@@ -889,7 +898,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".card {\n\tborder-color: #2c333a;\n\tbackground-color: #f0f2f4;\n}\n\n.card-header {\n\tbackground-color: #2c333a;\n\tcolor: #FFA500;\n}", ""]);
+exports.push([module.i, ".card {\n\tborder-color: #2c333a;\n\tbackground-color: #f0f2f4;\n}\n\n.card-header {\n\tbackground-color: #2c333a;\n\tcolor: #FFA500;\n}\n\nlabel {\n\tmargin-top: 20px;\n}\ninput {\n\twidth: 100%;\n}\n\nbutton {\n\tmargin: 20px 0;\n}", ""]);
 
 // exports
 
@@ -902,7 +911,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/ui-components/signup/signup.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<router-outlet></router-outlet>\n\n<div class=\"container\">\n\t<div class=\"row\">\n\t\t<div class=\"col-2\"></div> <!-- WHITESPACE -->\n\n\t\t<div class=\"col-8\">\n\t\t\t<div class=\"card\">\n\n\n<form [formGroup]=\"userForm\"  *ngIf=\"newUser\"  (ngSubmit)=\"signup()\">\n\n  <h3>New User Signup</h3>\n  <p class=\"button is-small\" (click)=\"toggleForm()\">Already Registered?</p>\n  <hr>\n\n  <label for=\"email\">Email</label>\n  <input type=\"email\" id=\"email\" class=\"input\"\n         formControlName=\"email\" required >\n\n  <div *ngIf=\"formErrors.email\" class=\"notification is-danger\">\n    {{ formErrors.email }}\n  </div>\n\n  <label for=\"password\">Password</label>\n  <input type=\"password\" id=\"password\" class=\"input\"\n         formControlName=\"password\" required >\n\n  <div *ngIf=\"formErrors.password\" class=\"notification is-danger\">\n    {{ formErrors.password }}\n  </div>\n\n  <div *ngIf=\"userForm.valid\" class=\"notification is-success\">Form is valid</div>\n  <button type=\"submit\" class=\"button\" [disabled]=\"!userForm.valid\">Submit</button>\n\n\n\n\n</form>\n\n\n<form [formGroup]=\"userForm\"  *ngIf=\"!newUser\"  (ngSubmit)=\"login()\">\n\n  <h3>Existing User Login</h3>\n  <p class=\"btn button is-small\" (click)=\"toggleForm()\">New User?</p>\n  <hr>\n\n  <label for=\"email\">Email</label>\n  <input type=\"email\" id=\"email\" class=\"input\"\n         formControlName=\"email\" required >\n\n  <div *ngIf=\"formErrors.email\" class=\"help is-danger\">\n    {{ formErrors.email }}\n  </div>\n\n  <label for=\"password\">Password</label>\n  <input type=\"password\" id=\"password\" class=\"input\"\n         formControlName=\"password\" required >\n\n  <div *ngIf=\"formErrors.password\" class=\"help is-danger\">\n    {{ formErrors.password }}\n  </div>\n\n  <button type=\"submit\" class=\"button\" [disabled]=\"!userForm.valid\">Submit</button>\n\n  <span *ngIf=\"userForm.valid\" class=\"help is-success\">Form Looks Valid</span>\n\n  <a *ngIf=\"!passReset && userForm.controls.email.valid\" class=\"help is-info\" (click)=\"resetPassword()\">Reset Password for {{userForm.value.email}}?</a>\n  <p *ngIf=\"passReset\" class=\"help is-info\">Reset requested. Check your email instructions.</p>\n\n\n</form>\n\n\n\t\t\t</div> <!-- end of card -->\n\t\t</div> <!-- end of col 8 -->\n\n\t\t<div class=\"col-2\"></div> <!-- WHITESPACE -->\n\t</div> <!-- end of row -->\n</div> <!-- end of container -->\n\n"
+module.exports = "<router-outlet></router-outlet>\n\n<div class=\"container\">\n\t<div class=\"row\">\n\t\t<div class=\"col-2\"></div> <!-- WHITESPACE -->\n\n\t\t<div class=\"col-8\">\n\t\t\t<div class=\"card\">\n\n        <form class=\"form-group\" [formGroup]=\"userForm\"  *ngIf=\"newUser\"  (ngSubmit)=\"signup()\">\n          <h1 class=\"card-header\">New User Signup</h1>\n          <div class=\"card-block\">\n            <button class=\"btn btn-success\" (click)=\"toggleForm()\">Already Registered?</button>\n            <hr>\n\n            <label for=\"email\">Email</label>\n            <input type=\"email\" id=\"email\" class=\"input\" formControlName=\"email\" required >\n            <small id=\"emailHelp\" class=\"form-text text-muted\">We'll never share your email with anyone else.</small>\n\n\n            <div *ngIf=\"formErrors.email\" class=\"notification is-danger\">\n              {{ formErrors.email }}\n            </div>\n\n            <label for=\"password\">Password</label>\n            <input type=\"password\" id=\"password\" class=\"input\" formControlName=\"password\" required >\n\n            <div *ngIf=\"formErrors.password\" class=\"notification is-danger\">\n              {{ formErrors.password }}\n            </div>\n\n            <div *ngIf=\"userForm.valid\" class=\"notification is-success\">Form is valid</div>\n              <button type=\"submit\" class=\"btn btn-success\" [disabled]=\"!userForm.valid\">Sign Up</button>\n          </div>\n        </form>\n\n        <form class=\"form-group\" [formGroup]=\"userForm\"  *ngIf=\"!newUser\"  (ngSubmit)=\"login()\">\n          <h1 class=\"card-header\">Existing User Login</h1>\n          <div class=\"card-block\">\n            <button class=\"btn btn-success\" (click)=\"toggleForm()\">New User?</button>\n            <hr>\n\n            <label for=\"email\">Email</label>\n            <input type=\"email\" id=\"email\" class=\"input\" formControlName=\"email\" required >\n            <small id=\"emailHelp\" class=\"form-text text-muted\">We'll never share your email with anyone else.</small>\n\n            <div *ngIf=\"formErrors.email\" class=\"help is-danger\">\n              {{ formErrors.email }}\n            </div>\n\n            <label for=\"password\">Password</label>\n            <input type=\"password\" id=\"password\" class=\"input\" formControlName=\"password\" required >\n\n            <div *ngIf=\"formErrors.password\" class=\"help is-danger\">\n              {{ formErrors.password }}\n            </div>\n\n            <button type=\"submit\" class=\"btn btn-success\" [disabled]=\"!userForm.valid\">Log In</button>\n            <span *ngIf=\"userForm.valid\" class=\"help is-success\">Form Looks Valid</span>\n\n            <button *ngIf=\"!passReset && userForm.controls.email.valid\" class=\"help is-info btn btn-warning\" (click)=\"resetPassword()\">Reset Password for {{userForm.value.email}}?</button>\n\n            <p *ngIf=\"passReset\" class=\"help is-info\">Reset requested. Check your email instructions.</p>\n          </div>\n        </form>\n\n\t\t\t</div> <!-- end of card -->\n\t\t</div> <!-- end of col 8 -->\n\n\t\t<div class=\"col-2\"></div> <!-- WHITESPACE -->\n\t</div> <!-- end of row -->\n</div> <!-- end of container -->\n\n"
 
 /***/ }),
 
