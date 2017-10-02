@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "inspiration-only"
+    "default": "inspiration-only-dev",
+    "staging": "inspiration-only-dev"
   }
 }
