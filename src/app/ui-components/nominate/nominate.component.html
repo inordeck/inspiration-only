@@ -69,9 +69,10 @@
             size="invisible"
             (resolved)="$event && onSubmit($event)"></re-captcha>
     <button
-		class="g-recaptcha btn btn-primary pull-right"
-		data-sitekey="6Ldq5jIUAAAAALgK6PfPTGBah-mn0uhYGn2zocs3"
-		data-callback="YourOnSubmitFn">
+    	type="button"
+    	(click)="onsubmit()"
+		class="btn btn-primary pull-left"
+		routerLink="/volume-one">
 		Send
 		</button>
   </form>

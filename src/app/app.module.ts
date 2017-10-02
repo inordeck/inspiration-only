@@ -18,7 +18,7 @@ import { AuthService } from './shared/auth/auth.service';
 import { CoreModule } from './shared/auth/core.module';
 import { SharedModule } from './ui-components/nominate/shared/shared.module';
 
-/* recaptcha */
+/* RECAPTCHA */
 import { RecaptchaModule } from 'ng-recaptcha';
 
 /* ROUTING */

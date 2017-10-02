@@ -1,6 +1,9 @@
 /*  import {  } from '';  */
 import { Component, AfterViewChecked, ViewChild } from '@angular/core';
 import { NgForm, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+
+import { AppRoutingModule } from '../../app.routing.module';
 
 import { AngularFireModule } from 'angularfire2';
 
@@ -18,8 +21,10 @@ export class NominateComponent implements AfterViewChecked {
   submitted = false;
   charsLeft = 250;
   contactForm: NgForm;
+  router: Router;
 
   @ViewChild('contactForm') currentForm: NgForm;
+
   submittedForm: any; // we will get rid of this later
   formErrors = {
     'contactName': '',
@@ -58,10 +63,12 @@ export class NominateComponent implements AfterViewChecked {
   onValueChanged(data?: any) {
     if (!this.contactForm) { return; }
     const form = this.contactForm.form;
+
     for (const field in this.formErrors) {
       // clear previous error message (if any)
       this.formErrors[field] = '';
       const control = form.get(field);
+
       if (control && control.dirty && !control.valid) {
         const messages = this.validationMessages[field];
         for (const key in control.errors) {
@@ -72,9 +79,12 @@ export class NominateComponent implements AfterViewChecked {
   }
 
   onSubmit(captchaResponse: string) {
+  	console.log('send clicked')
     this.model.captcha = captchaResponse;
     this.submittedForm = JSON.stringify(this.model, null, 4);
     this.submitted = true;
+   	this.router.navigate(['/volume-one'])
+
   }
 
   countChars(event: any) {
