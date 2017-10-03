@@ -154,7 +154,7 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["a" /* BrowserModule */],
             __WEBPACK_IMPORTED_MODULE_2__angular_forms__["b" /* FormsModule */],
             __WEBPACK_IMPORTED_MODULE_2__angular_forms__["e" /* ReactiveFormsModule */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* HttpModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_http__["c" /* HttpModule */],
             __WEBPACK_IMPORTED_MODULE_11__app_routing_module__["a" /* AppRoutingModule */],
             __WEBPACK_IMPORTED_MODULE_4_angularfire2__["a" /* AngularFireModule */].initializeApp(__WEBPACK_IMPORTED_MODULE_7__environments_environment__["a" /* environment */].firebaseConfig),
             __WEBPACK_IMPORTED_MODULE_5_angularfire2_database__["b" /* AngularFireDatabaseModule */],
@@ -777,7 +777,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/ui-components/nominate/nominate.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<router-outlet></router-outlet>\n\n<div class=\"container\">\n\t<div class=\"row\">\n\t\t<div class=\"col-2\"></div> <!-- WHITESPACE -->\n\n\t\t<div class=\"col-8\">\n\t\t\t<div class=\"card\">\n\t\t\t\t<h1 class=\"card-header\">NOMINATE</h1>\n\t\t\t\t<div class=\"card-block\">\n\t\t\t\t\t<h4 class=\"card-title\">Thanks you for participating and contributing to the story.</h4>\n\t\t\t\t\t<p class=\"card-text\">Please nominate the next writer to pick up where you left off.</p>\n\t\t\t\t\t<form>\n\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t<label for=\"firstName\">First Name</label>\n\t\t\t\t\t\t\t<input type=\"firstName\" class=\"form-control\" id=\"firstName\" placeholder=\"Enter first name\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t<label for=\"lastName\">Last Name</label>\n\t\t\t\t\t\t\t<input type=\"lastName\" class=\"form-control\" id=\"lastName\" placeholder=\"Enter last name\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t<label for=\"exampleInputEmail1\">Email address</label>\n\t\t\t\t\t\t\t<input type=\"email\" class=\"form-control\" id=\"exampleInputEmail1\" aria-describedby=\"emailHelp\" placeholder=\"Enter email\">\n\t\t\t\t\t\t\t<small id=\"emailHelp\" class=\"form-text text-muted\">We'll never share your email with anyone else.</small>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t<label for=\"personalMessage\">Personal Message</label>\n\t\t\t\t\t\t\t<input type=\"textarea\" class=\"form-control\" id=\"personalMessage\" placeholder=\"Personal message...\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"buttons\">\n\t\t\t\t\t\t\t<button type=\"submit\" class=\"btn btn-primary\" routerLink=\"/story-so-far\">NOMINATE</button>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</form>  <!-- end of form -->\n\t\t\t\t</div> <!-- end of card block -->\n\t\t\t</div> <!-- end of card -->\n\t\t</div> <!-- end of col 8 -->\n\n\t\t<div class=\"col-2\"></div> <!-- WHITESPACE -->\n\t</div> <!-- end of row -->\n</div> <!-- end of container -->\n\n"
+module.exports = "<router-outlet></router-outlet>\n\n<div class=\"container\">\n\t<div class=\"row\">\n\t\t<div class=\"col-2\"></div> <!-- WHITESPACE -->\n\n\t\t<div class=\"col-8\">\n\t\t\t<div class=\"card\">\n\t\t\t\t<h1 class=\"card-header\">NOMINATE</h1>\n\t\t\t\t<div class=\"card-block\">\n\t\t\t\t\t<h4 class=\"card-title\">Thanks you for participating and contributing to the story.</h4>\n\t\t\t\t\t<p class=\"card-text\">Please nominate the next writer to pick up where you left off.</p>\n\t\t\t\t\t<form>\n\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t<label for=\"firstName\">First Name</label>\n\t\t\t\t\t\t\t<input type=\"firstName\" class=\"form-control\" id=\"firstName\" placeholder=\"Enter first name\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t<label for=\"lastName\">Last Name</label>\n\t\t\t\t\t\t\t<input type=\"lastName\" class=\"form-control\" id=\"lastName\" placeholder=\"Enter last name\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t<label for=\"exampleInputEmail1\">Email address</label>\n\t\t\t\t\t\t\t<input type=\"email\" class=\"form-control\" id=\"exampleInputEmail1\" aria-describedby=\"emailHelp\" placeholder=\"Enter email\">\n\t\t\t\t\t\t\t<small id=\"emailHelp\" class=\"form-text text-muted\">We'll never share your email with anyone else.</small>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t<label for=\"personalMessage\">Personal Message</label>\n\t\t\t\t\t\t\t<input type=\"textarea\" class=\"form-control\" id=\"personalMessage\" placeholder=\"Personal message...\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"buttons\">\n              <button (click)=\"sendEmail()\" class=\"btn btn-primary\" routerLink=\"/volume-one\">NOMINATE</button>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</form>  <!-- end of form -->\n\t\t\t\t</div> <!-- end of card block -->\n\t\t\t</div> <!-- end of card -->\n\t\t</div> <!-- end of col 8 -->\n\n\t\t<div class=\"col-2\"></div> <!-- WHITESPACE -->\n\t</div> <!-- end of row -->\n</div> <!-- end of container -->\n\n"
 
 /***/ }),
 
@@ -787,6 +787,9 @@ module.exports = "<router-outlet></router-outlet>\n\n<div class=\"container\">\n
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NominateComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_toPromise__ = __webpack_require__("../../../../rxjs/add/operator/toPromise.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_toPromise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_toPromise__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -796,10 +799,31 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+/*  import {  } from '';  */
+
+
 
 var NominateComponent = (function () {
-    function NominateComponent() {
+    function NominateComponent(http) {
+        this.http = http;
     }
+    NominateComponent.prototype.sendEmail = function () {
+        var url = "https://us-central1-inspiration-only-dev.cloudfunctions.net/httpEmail";
+        var params = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* URLSearchParams */]();
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' });
+        params.set('to', 'user@example.com');
+        params.set('from', 'octomoose@inspiration-only.com');
+        params.set('subject', 'You have been nominated to participate in a collaborative story.');
+        params.set('content', 'Hello World');
+        return this.http.post(url, params, headers)
+            .toPromise()
+            .then(function (res) {
+            console.log(res);
+        })
+            .catch(function (err) {
+            console.log(err);
+        });
+    };
     NominateComponent.prototype.ngOnInit = function () {
     };
     return NominateComponent;
@@ -810,9 +834,10 @@ NominateComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/ui-components/nominate/nominate.component.html"),
         styles: [__webpack_require__("../../../../../src/app/ui-components/nominate/nominate.component.css")]
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object])
 ], NominateComponent);
 
+var _a;
 //# sourceMappingURL=nominate.component.js.map
 
 /***/ }),
