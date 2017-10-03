@@ -15,6 +15,7 @@
 						</div>
 
 <form #contactForm="ngForm" [hidden]="submitted" (ngSubmit)="captchaRef.execute()">
+    <!-- NAME -->
     <div class="form-group">
       <input type="text"
              [(ngModel)]="model.contactName"
@@ -27,6 +28,8 @@
         {{ formErrors.contactName }}
       </div>
     </div>
+
+    <!-- EMAIL -->
     <div class="form-group">
       <input type="email"
              [(ngModel)]="model.contactEmail"
@@ -40,14 +43,18 @@
         {{ formErrors.contactEmail }}
       </div>
     </div>
-    <div class="form-group">
+
+    <!-- WEBSITE -->
+    <!-- <div class="form-group">
       <input type="text"
              [(ngModel)]="model.contactWebsite"
              id="contact_website"
              name="contactWebsite"
              placeholder="Website"
              class="form-control">
-    </div>
+    </div> -->
+
+    <!-- MESSAGE -->
     <div class="form-group">
       <textarea [(ngModel)]="model.contactMessage"
                 (keyup)="countChars($event)"
@@ -61,20 +68,26 @@
       <div *ngIf="formErrors.contactMessage" class="alert alert-danger" style="margin-bottom:0">
         {{ formErrors.contactMessage }}
       </div>
+
       <span class="char-count">{{ charsLeft }}</span>
     </div>
+
+    <!-- RECAPTCHA -->
     <re-captcha #captchaRef="reCaptcha"
             name="captcha"
             siteKey="6Ldq5jIUAAAAALgK6PfPTGBah-mn0uhYGn2zocs3"
             size="invisible"
-            (resolved)="$event && onSubmit($event)"></re-captcha>
+            (resolved)="$event && onEmailSend($event)"></re-captcha>
+
+    <!-- SEND -->
     <button
-    	type="submit"
-    	(click)="onSubmit()"
-		class="btn btn-primary pull-left"
-		routerLink="/volume-one">
-		Send
-		</button>
+      type="button" 
+      (click)="onEmailSend()" 
+      class="btn btn-primary pull-left" 
+      routerLink="/volume-one"> 
+      Send
+    </button>
+
   </form>
   <div [hidden]="!submitted">
     <div class="panel panel-primary">
@@ -110,6 +123,7 @@
 							<button type="submit" [disabled]="form.invalid" class="btn btn-primary" routerLink="/story-so-far">NOMINATE</button>
 						</div>
 					</form> -->  <!-- end of form -->
+
 				</div> <!-- end of card block -->
 			</div> <!-- end of card -->
 		</div> <!-- end of col 8 -->

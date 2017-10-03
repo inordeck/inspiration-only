@@ -78,13 +78,12 @@ export class NominateComponent implements AfterViewChecked {
     }
   }
 
-  onSubmit(captchaResponse: string) {
+  onEmailSend(captchaResponse: string) {
   	console.log('send clicked')
     this.model.captcha = captchaResponse;
     this.submittedForm = JSON.stringify(this.model, null, 4);
     this.submitted = true;
-   	this.router.navigate(['/volume-one'])
-
+    event.preventDefault();
   }
 
   countChars(event: any) {
