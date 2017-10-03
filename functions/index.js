@@ -9,7 +9,7 @@
 const functions = require('firebase-functions');
 
 const sendgrid = require('sendgrid');
-const client = sendgrid("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");
+const client = sendgrid("");
 
 function parseBody(body) {
   var helper = sendgrid.mail;
