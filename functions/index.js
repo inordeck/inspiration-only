@@ -6,9 +6,11 @@
 //  response.send("Hello from Firebase!");
 // });
 
-var functions = require('firebase-functions');
+const functions = require('firebase-functions');
+
 const sendgrid = require('sendgrid');
 const client = sendgrid("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");
+
 function parseBody(body) {
   var helper = sendgrid.mail;
   var fromEmail = new helper.Email(body.from);
@@ -26,6 +28,7 @@ exports.httpEmail = functions.https.onRequest((req, res) => {
         error.code = 405;
         throw error;
       }
+
       const request = client.emptyRequest({
         method: 'POST',
         path: '/v3/mail/send',
@@ -33,6 +36,7 @@ exports.httpEmail = functions.https.onRequest((req, res) => {
       });
       return client.API(request);
     })
+
     .then((response) => {
       if (response.body) {
         res.send(response.body);
@@ -40,8 +44,10 @@ exports.httpEmail = functions.https.onRequest((req, res) => {
         res.end();
       }
     })
+
     .catch((err) => {
       console.error(err);
       return Promise.reject(err);
     });
+
 });
