@@ -1,11 +1,13 @@
 /*  import {  } from '';  */
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { Story } from '../../shared/story/story';
 import { StoryService } from '../../shared/story/story.service';
 import { StoryModule } from '../../shared/story/story.module';
 import { AuthService } from '../../shared/auth/auth.service';
+import { AppRoutingModule } from '../../app.routing.module';
 
 @Component({
   selector: 'app-send-story',
@@ -17,8 +19,10 @@ export class SendStoryComponent implements OnInit {
 
 	story: Story = new Story();
 
+
 	constructor(
-		private storyService: StoryService
+		private storyService: StoryService,
+		private router: Router
 	) { }
 
 	ngOnInit() {
@@ -27,6 +31,7 @@ export class SendStoryComponent implements OnInit {
 	createStory() {
 		this.storyService.createStory(this.story)
 		this.story = new Story()
+		this.router.navigate(['/nominate'])
 	}
 
 }

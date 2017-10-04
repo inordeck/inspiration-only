@@ -10,26 +10,26 @@
 				<div class="card-block">
 					<h4 class="card-title">Thanks you for participating and contributing to the story.</h4>
 					<p class="card-text">Please nominate the next writer to pick up where you left off.</p>
-					<form>
+					<form method="POST" class="nominate-form">
 						<div class="form-group">
 							<label for="firstName">First Name</label>
-							<input type="firstName" class="form-control" id="firstName" placeholder="Enter first name">
+							<input [(ngModel)]="nominate.firstName" name="first" type="firstName" class="form-control" id="firstName" placeholder="Enter first name">
 						</div>
 							<div class="form-group">
 							<label for="lastName">Last Name</label>
-							<input type="lastName" class="form-control" id="lastName" placeholder="Enter last name">
+							<input [(ngModel)]="nominate.lastName" name="last" type="lastName" class="form-control" id="lastName" placeholder="Enter last name">
 						</div>
 						<div class="form-group">
-							<label for="exampleInputEmail1">Email address</label>
-							<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+							<label for="inputEmail">Email address</label>
+							<input [(ngModel)]="nominate.inputEmail" name="email" type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Enter email">
 							<small id="emailHelp" class="form-text text-muted">We'll never share email addresses with anyone else.</small>
 						</div>
 						<div class="form-group">
 							<label for="personalMessage">Personal Message</label>
-							<input type="textarea" class="form-control" id="personalMessage" placeholder="Personal message...">
+							<input [(ngModel)]="nominate.personalMessage" name="message" type="textarea" class="form-control" id="personalMessage" placeholder="Personal message...">
 						</div>
 						<div class="buttons">
-              <button (click)="sendEmail()" class="btn btn-primary" routerLink="/volume-one">NOMINATE</button>
+			              <button type="button" (click)="prepEmail()" class="btn btn-primary">NOMINATE</button>
 						</div>
 					</form>  <!-- end of form -->
 				</div> <!-- end of card block -->

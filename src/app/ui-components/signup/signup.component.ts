@@ -18,7 +18,7 @@ export class SignupComponent implements OnInit {
   passReset = false; // set to true when password reset is triggered
   formErrors = {
     'email': '',
-    'password': ''
+    'password': '',
   };
   validationMessages = {
     'email': {
@@ -47,12 +47,15 @@ export class SignupComponent implements OnInit {
   }
 
   signup(): void {
-     this.auth.emailSignUp(this.userForm.value['email'], this.userForm.value['password'])
-     .then
+     this.auth.emailSignUp(
+       this.userForm.value['email'], 
+       this.userForm.value['password'])
    }
 
    login(): void {
-     this.auth.emailLogin(this.userForm.value['email'], this.userForm.value['password'])
+     this.auth.emailLogin(
+       this.userForm.value['email'], 
+       this.userForm.value['password'])
    }
 
    resetPassword() {
@@ -62,17 +65,17 @@ export class SignupComponent implements OnInit {
 
    buildForm(): void {
      this.userForm = this.fb.group({
-       'email': ['', [
-           Validators.required,
-           Validators.email
-         ]
-       ],
-       'password': ['', [
-         Validators.pattern('^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$'),
-         Validators.minLength(6),
-         Validators.maxLength(25)
-       ]
-     ],
+        'email': ['', [
+          Validators.required,
+          Validators.email
+          ]
+        ],
+        'password': ['', [
+          Validators.pattern('^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$'),
+          Validators.minLength(6),
+          Validators.maxLength(25)
+          ]
+        ]
      });
      this.userForm.valueChanges.subscribe(data => this.onValueChanged(data));
      this.onValueChanged(); // reset validation messages
@@ -94,6 +97,5 @@ export class SignupComponent implements OnInit {
        }
      }
    }
-
 
 }
