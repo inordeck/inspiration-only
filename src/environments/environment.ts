@@ -14,9 +14,6 @@ export const environment = {
 		projectId: "inspiration-only-dev",
 		storageBucket: "inspiration-only-dev.appspot.com",
 		messagingSenderId: "543066602535"
-	},
-
-	sendgridConfig: {
-		apikey: "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"
 	}
+	
 };
