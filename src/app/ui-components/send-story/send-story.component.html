@@ -12,10 +12,15 @@
 					<ol class="card-text">
 						<li><a routerLink="/volume-one">Read the story so far</a></li>
 						<li>Compose your story in your editor of choice.</li>
+						<li>Enter you pass phrase below.</li>
 						<li>Paste your copy into the text area below.</li>
 						<li>Click 'Contribute to Story' to save your story.</li>
 						<li>Nominate the next person to contriubute.</li>
 					</ol>
+					<label for="passKey">Pass Key</label>
+					<input type="text" class="form-control" id="passKey" placeholder="Enter pass key">
+					<button class="btn btn-success" id="checkPassKey" (click)='checkPassKey()'>CHECK PASS KEY</button>
+
 				</div> <!-- end of card block -->
 			</div> <!-- end of card -->
 		</div> <!-- end of col 8 -->
@@ -27,7 +32,7 @@
 		<div class="col-2"></div> <!-- WHITESPACE -->
 		
 		<div class="col-8">
-			<div class="card">
+			<div class="card" *ngIf="passKey === true">
 				<h1 class="card-header">ADD TO THE STORY</h1>
 				<div class="card-block">
 					<!-- <div *ngIf="authState">

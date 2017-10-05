@@ -24,6 +24,10 @@ export class SendStoryComponent implements OnInit {
 	ngOnInit() {
 	}
 
+	checkPassKey() {
+
+	}
+
 	createStory() {
 		this.storyService.createStory(this.story)
 		this.story = new Story()
